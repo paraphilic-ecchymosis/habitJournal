@@ -1,7 +1,10 @@
 package com.crookedcoder.behaviorapp.behavior;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
+@Component
 @Data
 public class Behavior {
 
