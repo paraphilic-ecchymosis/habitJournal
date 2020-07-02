@@ -1,4 +1,4 @@
-package com.crookedcoder.behaviorapp.behavior;
+package com.crookedcoder.behaviorapp.entity;
 
 import org.springframework.stereotype.Component;
 

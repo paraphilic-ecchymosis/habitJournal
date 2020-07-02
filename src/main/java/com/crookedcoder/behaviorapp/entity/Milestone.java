@@ -1,4 +1,4 @@
-package com.crookedcoder.behaviorapp.milestone;
+package com.crookedcoder.behaviorapp.entity;
 
 import com.google.api.client.util.DateTime;
 

@@ -1,4 +1,4 @@
-package com.crookedcoder.behaviorapp.journal;
+package com.crookedcoder.behaviorapp.entity;
 
 import java.util.ArrayList;
 import java.util.List;

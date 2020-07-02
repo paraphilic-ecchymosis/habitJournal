@@ -37,39 +37,6 @@ public class Config {
         Resource credentials = new ClassPathResource("credentials.json");
         return GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(credentials.getInputStream()));
     }
-
-    /* Thymeleaf Config */
-
-    @Bean
-    @Description("Thymeleaf Template Resolver")
-    public ServletContextTemplateResolver templateResolver() {
-        // TODO: This needs to be inspected for accuracy.
-        ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(null);
-        templateResolver.setPrefix("/WEB-INF/views/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML5");
-
-        return templateResolver;
-    }
-
-    @Bean
-    @Description("Thymeleaf Template Engine")
-    public SpringTemplateEngine templateEngine() {
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver());
-        templateEngine.setTemplateEngineMessageSource(messageSource());
-        return templateEngine;
-    }
-
-    
-    @Bean
-    @Description("Thymeleaf View Resolver")
-    public ThymeleafViewResolver viewResolver() {
-        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-        viewResolver.setTemplateEngine(templateEngine());
-        viewResolver.setOrder(1);
-        return viewResolver;
-    }
     
     // TODO: Need message properties
     @Bean

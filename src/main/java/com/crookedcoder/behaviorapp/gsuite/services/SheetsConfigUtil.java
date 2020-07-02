@@ -1,6 +1,5 @@
 package com.crookedcoder.behaviorapp.gsuite.services;
 
-import java.io.IOException;
 import java.security.GeneralSecurityException;
 
 import com.google.api.services.sheets.v4.Sheets;
@@ -12,14 +11,18 @@ import com.google.api.services.sheets.v4.model.SheetProperties;
 import com.google.api.services.sheets.v4.model.Spreadsheet;
 import com.google.api.services.sheets.v4.model.SpreadsheetProperties;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 
 @Component
 public class SheetsConfigUtil {
 
+    @Value("${gsuite.credentials.file}")
+    private String CREDENTIALS;
 
-    public static Spreadsheet initializeSpreadSheet() throws IOException, GeneralSecurityException {
+
+    public static Spreadsheet initializeSpreadSheet() throws Exception, GeneralSecurityException {
         Spreadsheet spreadsheet = new Spreadsheet()
                 .setProperties(new SpreadsheetProperties().setTitle("Behavior App"));
         Sheets service = new SheetsService().getSheetsService();
@@ -27,7 +30,6 @@ public class SheetsConfigUtil {
         System.out.println("Spreadsheet ID: " + spreadsheet.getSpreadsheetId() + " successfully created.");
         return spreadsheet;
     }
-
 
     // I hate this and want it as a map or something.
     /**

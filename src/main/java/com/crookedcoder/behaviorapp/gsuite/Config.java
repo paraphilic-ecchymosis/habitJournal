@@ -8,7 +8,7 @@ import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.List;
 
-import com.crookedcoder.behaviorapp.journal.Journal;
+import com.crookedcoder.behaviorapp.entity.Journal;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -26,12 +26,15 @@ import com.google.api.services.sheets.v4.model.ValueRange;
 
 public class Config {
 
+    // Constant
     private static final String APPLICATION_NAME = "Behavior App";
-    private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
+    private static final String CREDENTIALS = "./credentials.json";
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
+
+
+    private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String SPREADSHEET_ID = "1SrCbIbgXSCtM2jz2x1qC7dmiVjVQVf1M_fWpuBIs_hc";
     // TODO: Externalize this to a properties file.
-    private static final String CREDENTIALS = "./credentials.json";
 
 
 
