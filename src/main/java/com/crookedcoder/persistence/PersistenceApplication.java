@@ -1,4 +1,4 @@
-package com.crookedcoder.behaviorapp;
+package com.crookedcoder.persistence;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class DemoApplication extends SpringBootServletInitializer {
+public class PersistenceApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) throws IOException, GeneralSecurityException {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(PersistenceApplication.class, args);
 
 	}
 

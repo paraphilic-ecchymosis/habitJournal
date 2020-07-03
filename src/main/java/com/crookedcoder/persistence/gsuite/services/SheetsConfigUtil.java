@@ -1,4 +1,4 @@
-package com.crookedcoder.behaviorapp.gsuite.services;
+package com.crookedcoder.persistence.gsuite.services;
 
 import java.security.GeneralSecurityException;
 
@@ -18,18 +18,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class SheetsConfigUtil {
 
-    @Value("${gsuite.credentials.file}")
-    private String CREDENTIALS;
+    // @Value("${gsuite.credentials.file}")
+    // private String CREDENTIALS;
 
 
-    public static Spreadsheet initializeSpreadSheet() throws Exception, GeneralSecurityException {
-        Spreadsheet spreadsheet = new Spreadsheet()
-                .setProperties(new SpreadsheetProperties().setTitle("Behavior App"));
-        Sheets service = new SheetsService().getSheetsService();
-        spreadsheet = service.spreadsheets().create(spreadsheet).setFields("spreadsheetId").execute();
-        System.out.println("Spreadsheet ID: " + spreadsheet.getSpreadsheetId() + " successfully created.");
-        return spreadsheet;
-    }
+    // public static Spreadsheet initializeSpreadSheet() throws Exception, GeneralSecurityException {
+    //     Spreadsheet spreadsheet = new Spreadsheet()
+    //             .setProperties(new SpreadsheetProperties().setTitle("Behavior App"));
+    //     Sheets service = new SheetsService().getSheetsService();
+    //     spreadsheet = service.spreadsheets().create(spreadsheet).setFields("spreadsheetId").execute();
+    //     System.out.println("Spreadsheet ID: " + spreadsheet.getSpreadsheetId() + " successfully created.");
+    //     return spreadsheet;
+    // }
 
     // I hate this and want it as a map or something.
     /**

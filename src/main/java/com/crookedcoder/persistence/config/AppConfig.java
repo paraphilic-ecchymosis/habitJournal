@@ -1,4 +1,4 @@
-package com.crookedcoder.behaviorapp.config;
+package com.crookedcoder.persistence.config;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,10 +23,9 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import lombok.Data;
 
 @Configuration
-public class Config {
+public class AppConfig {
 
-    // @Bean
-    @Value("${application.name}")
+    @Value("${spring.application.name}")
     public String applicationName;
 
         /* GSuite Config */

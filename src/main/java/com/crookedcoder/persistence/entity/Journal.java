@@ -1,4 +1,4 @@
-package com.crookedcoder.behaviorapp.entity;
+package com.crookedcoder.persistence.entity;
 
 import java.util.ArrayList;
 import java.util.List;

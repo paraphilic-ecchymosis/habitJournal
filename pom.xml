@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.crookedcoder</groupId>
-	<artifactId>behaviorapp</artifactId>
+	<artifactId>persistence</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Persistence Journal</name>
+	<description>Web application project for Cognitive Behavioral Therapy</description>
 
 	<properties>
 		<java.version>1.8</java.version>

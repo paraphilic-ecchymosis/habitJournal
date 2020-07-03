@@ -1,9 +1,9 @@
-package com.crookedcoder.behaviorapp.dao;
+package com.crookedcoder.persistence.dao;
 
 import java.util.Optional;
 
-import com.crookedcoder.behaviorapp.entity.Journal;
-import com.crookedcoder.behaviorapp.entity.Journal.Entry;
+import com.crookedcoder.persistence.entity.Journal;
+import com.crookedcoder.persistence.entity.Journal.Entry;
 import com.google.api.client.util.DateTime;
 
 public interface JournalDAO {
