@@ -3,10 +3,11 @@ package com.crookedcoder.persistence.entity;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Component
-@Data
-public class Behavior {
+@RequiredArgsConstructor
+public @Data class Behavior {
 
     private int ID;
     private String name;

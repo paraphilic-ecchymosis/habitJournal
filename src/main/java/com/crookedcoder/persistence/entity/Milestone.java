@@ -2,10 +2,14 @@ package com.crookedcoder.persistence.entity;
 
 import com.google.api.client.util.DateTime;
 
-import lombok.Data;
+import org.springframework.stereotype.Component;
 
-@Data
-public class Milestone {
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
+public @Data class Milestone {
     
     private int id;
     private String goal;

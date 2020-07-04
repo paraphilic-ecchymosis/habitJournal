@@ -6,9 +6,10 @@ import java.util.List;
 import com.google.api.client.util.DateTime;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 
-public @Data class Journal {
+public class Journal {
     
     private List<Entry> entries = new ArrayList<Entry>();
 
@@ -17,21 +18,16 @@ public @Data class Journal {
     }
 
     public void setEntries(int id, DateTime date, int units) {
-        entries.add(new Entry(id, date, units));
+        entries.add(new Entry());
     }
 
-    @Data
-    public class Entry {
+    
+    @RequiredArgsConstructor
+    public @Data class Entry {
     
         private int id;
         private DateTime dateLogged;
         private int unitsCompleted;
-
-        public Entry(int id, DateTime date, int units) {
-            this.id=id;
-            this.dateLogged=date;
-            this.unitsCompleted=units;
-        }
 
     }
 
