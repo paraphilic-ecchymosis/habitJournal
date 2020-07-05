@@ -1,0 +1,306 @@
+html {
+    /* TODO: Refine theme 
+    00FFFF -  associated with emotional healing and protection.
+    
+    */
+    --main-background: #2effd2;
+    --main-color: #00ff37;
+    --main-background-inverted: #d1002d;
+    --main-color-inverted: #ff00c8;
+}
+
+
+/* TODO: Content Zone - Main */
+
+body {
+    background-color: var(--main-background);
+    opacity: 50%;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+
+/* CZ End */
+
+
+/* Header Start */
+
+.header-support {
+    /* TODO: CHANGE ME */
+    color: var(--main-color-inverted);
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.header-nav-item {
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 50px;
+    text-align: center;
+    /* TODO: CHANGE ME */
+    color: var(--main-color-inverted);
+}
+
+.header-nav {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    /* TODO: CHANGE ME */
+    color: var(--main-color);
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.header-nav:hover {
+    background-color: var(--main-background-inverted);
+    color: var(--main-color-inverted);
+}
+
+#nav-bar {
+    margin: auto;
+}
+
+
+/* Header End */
+
+
+/* Footer Start */
+
+#footer {
+    position: relative;
+    z-index: 49
+}
+
+.footer {
+    background: inherit;
+    color: inherit;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer li {}
+
+.footer-links {}
+
+.footer-links-box {}
+
+.footer-links-box-title {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    padding: 12px 10px;
+    border-bottom: 1px solid #747474;
+    position: relative;
+}
+
+.footer li.blind {
+    display: none;
+    font-size: 14px;
+    line-height: 16px;
+    padding-left: 10.4px;
+    padding-bottom: 10px;
+}
+
+
+/* Copyright */
+
+.footer-copyright {
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+
+/* Footer End */
+
+
+/* Desktop Styles: 1441-2560 */
+
+@media screen and (max-width: 2560px) and (min-width: 1441px) {
+    .header-logo {
+        position: absolute;
+        top: 18px;
+        left: 30px;
+        height: 300px;
+        width: 113px;
+    }
+    #nav-bar {
+        float: left;
+    }
+    .header-nav {
+        font-size: 16px;
+        letter-spacing: 1.1px;
+        height: 100px;
+    }
+}
+
+
+/* Desktop Styles: 961-1440 */
+
+@media screen and (max-width: 2560px) and (min-width: 1441px) {
+    .header-logo {
+        position: absolute;
+        top: 18px;
+        left: 30px;
+        height: 300px;
+        width: 113px;
+    }
+    #nav-bar {
+        float: left;
+    }
+    .header-nav {
+        font-size: 16px;
+        letter-spacing: 1.1px;
+        height: 100px;
+    }
+}
+
+
+/* Mobile Styles */
+
+@media screen and (max-width: 960px) and (min-width: 501px) {
+    .header-logo {
+        position: absolute;
+        top: 5px;
+        left: 15px;
+        width: 155px;
+    }
+    .header-logo img {
+        height: auto;
+        width: 100%;
+    }
+    .header-sales {
+        position: absolute;
+        top: 14px;
+        right: 30px;
+        height: auto;
+        text-align: right;
+    }
+    .header-nav-category {
+        width: auto;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 52px;
+    }
+    .header.mx {
+        display: none;
+    }
+    .header-dx-nav {
+        max-width: 750px;
+        margin: 0 auto;
+        padding-top: 49px;
+    }
+    .flex-item {
+        -ms-flex: 1 0 auto;
+        ;
+        flex: 1 0 auto;
+    }
+    .header-nav {
+        font-size: 16px;
+        letter-spacing: 1.1px;
+    }
+    .footer {
+        padding-top: 28px;
+        ;
+    }
+    .footer-inner {
+        max-width: 628px;
+        margin: 0 auto;
+    }
+    .footer-links {
+        display: flex;
+    }
+    .footer-links-box {
+        flex: 1;
+    }
+    .footer-links-box-title {
+        border: none;
+    }
+    .footer li.blind {
+        display: block;
+        color: #cacaca
+    }
+}
+
+@media screen and (max-width: 500px) and (min-width: 320px) {
+    .header-logo img {
+        position: absolute;
+        top: 18px;
+        left: 30px;
+        height: auto;
+        width: 100%;
+    }
+    #nav-bar {
+        display: hidden;
+    }
+    .header-nav {
+        font-size: 16px;
+        letter-spacing: 1.1px;
+    }
+}
+
+
+/* Utility Classes */
+
+.lower-layer {
+    position: relative;
+    z-index: 1;
+}
+
+.middle-layer {
+    position: relative;
+    z-index: 10;
+}
+
+.upper-layer {
+    position: relative;
+    z-index: 20;
+}
+
+.container {
+    margin: 10px;
+}
+
+.relative {
+    position: relative;
+}
+
+
+/* Flex Box Start */
+
+.flex-box {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-row {
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-item {
+    flex: 1 0 auto;
+}
+
+
+/* Flex Box End */
