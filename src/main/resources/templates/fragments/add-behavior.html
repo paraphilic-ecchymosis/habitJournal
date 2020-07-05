@@ -1,0 +1,23 @@
+<form action="#" th:action="@{/addBehavior}" th:object="${behavior}" method="post">
+    <table border="1">
+        <tr>
+            <td><label th:text="#{messages.behavior.name}" /></td>
+            <td><input type="text" th:field="*{description}" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{messages.behavior.goal}" /></td>
+            <td><input type="number" th:field="*{goal}" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{messages.behavior.recur}" /></td>
+            <td><input type="number" th:field="*{recurring}" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{messages.behavior.min}" /></td>
+            <td><input type="number" th:field="*{minimum}" /></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+</form>
