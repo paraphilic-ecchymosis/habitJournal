@@ -34,6 +34,8 @@ public class Milestone {
     private String goal;
     @NonNull
     private DateTime dueDate;
-    private boolean completed;
+    // TODO: Maybe enum for this now that
+    // I have renamed it.....derp.
+    private boolean completionStatus;
 }
     
