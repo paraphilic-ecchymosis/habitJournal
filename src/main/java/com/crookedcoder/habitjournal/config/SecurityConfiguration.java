@@ -2,6 +2,12 @@ package com.crookedcoder.habitjournal.config;
 
 import java.util.Properties;
 
+import com.crookedcoder.habitjournal.filters.TotpAuthenticationFilter;
+import com.crookedcoder.habitjournal.model.Authorities;
+import com.crookedcoder.habitjournal.security.AdditionalAuthenticationDetailsSource;
+import com.crookedcoder.habitjournal.userdetails.AdditionalAuthenticationProvider;
+import com.crookedcoder.habitjournal.userdetails.AuthenticationSuccessHandlerImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -75,13 +81,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.mvcMatchers("/register","/login","/login-error",
 						"/login-verified","/verify/email","/qrcode").permitAll()
 				.mvcMatchers("/totp-login","/totp-login-error").hasAuthority(Authorities.TOTP_AUTH_AUTHORITY)
-				.mvcMatchers("/portfolio/**","/account/**").hasRole("USER")
+				.mvcMatchers("/journal/**","/account/**").hasRole("USER")
 				.mvcMatchers("/support/**").hasAnyRole("USER","ADMIN")
 				.mvcMatchers("/support/admin/**").access("isFullyAuthenticated() and hasRole('ADMIN')")
 				.mvcMatchers("/api/users").hasRole("ADMIN")
-				.mvcMatchers("/api/users/{username}/portfolio")
+				.mvcMatchers("/api/users/{username}/journal")
 					//.access("hasRole('ADMIN') || hasRole('USER') && #username == principal.username")
-					.access("@isPortfolioOwnerOrAdmin.check(#username)")
+					.access("@isJournalOwnerOrAdmin.check(#username)")
 				.anyRequest().denyAll();
         
 		//@formatter:on
@@ -111,20 +117,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		resolver.setDefaultErrorView("error");
 		return resolver;
     }
-    
-    // @Override
-	// protected UserDetailsService userDetailsService() {
-    //     return userDetailsService;
-	// }	
 	
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
         DelegatingPasswordEncoder encoder =  (DelegatingPasswordEncoder)PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		return encoder;	
 	}	
-    // @Bean
-    // public PasswordEncoder getPasswordEncoder() {
-    //     // TODO: identity store needs at least 60 chars
-    //     return new BCryptPasswordEncoder();
-    // }
 }
