@@ -71,4 +71,8 @@ public class Journal {
 		}
 		return null;
 	}
+
+	public List<Entry> getEntriesByHabitId(String id2) {
+		return null;
+	}
 }
