@@ -1,34 +1,65 @@
-<!doctype html>
-<html class="no-js" lang="" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="utf-8">
-    <title>Journal Page</title>
-    <meta name="description" content="Behavior tracking journal.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Jacob Crook">
-    <link rel="apple-touch-icon" href="icon.png">
-    <link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
-
-    <meta name="theme-color" content="#fafafa">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="fragments/head :: head">
 </head>
-
 <body>
-    <div id="main" class="container relative">
-        <!--[if IE]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-          <![endif]-->
-
-        <section id="header">
-        </section>
-
-        <main id="content-area" role="main">
-        </main>
-        <h1><span th:text="${message}" />'s Journal</h1>
-        <section id="footer">
-        </section>
-
-    </div>
+	<header th:insert="fragments/header :: header"></header>
+	<div class="container">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Friends Portfolio</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="sharedPortfolio : ${sharedPortfolios}"
+				th:onclick="'window.location.href = \'' + @{/portfolio/{portfolioId}(portfolioId=${sharedPortfolio.portfolioId})} + '\''">
+				<td th:text="${sharedPortfolio.name}">user</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<div class="container">
+		
+		<h3>Positions</h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Symbol</th>
+					<th>Total Coins</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="position : ${positionsResponse.positions}"
+					th:onclick="'window.location.href = \'' + @{/portfolio/transactions/{symbol}(symbol=${position.cryptoCurrency.symbol})} + '\''">
+					<td th:text="${position.cryptoCurrency.symbol}">BTC</td>
+					<td th:text="${#numbers.formatDecimal(position.quantity,0, 'DEFAULT', 8, 'DEFAULT')}">1.234</td>
+					<td th:text="${#numbers.formatCurrency(position.value)}">$10000.00</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+	<div class="container add_trans_div" >
+		<form action="#" th:action="@{/portfolio/transactions}" th:object="${transaction}" th:method="post">
+			<fieldset>
+				<label>Symbol</label> 
+				<select th:field="*{cryptoSymbol}" required="required">
+					<option value="">----Select----</option>
+					<option th:each="entry : ${positionsResponse.cryptoCurrencies.entrySet()}" th:text="${entry.key}" th:value="${entry.key}">
+				</select> 
+				<label>Type</label> 
+				<select th:field="*{type}" required="required">
+					<option th:value="BUY">BUY</option>
+					<option th:value="SELL">SELL</option>
+				</select> 
+				<label>Quantity</label> 
+				<input type="number" th:field="*{quantity}" required="required">
+				<label>Price</label> 
+				<input type="number" th:field="*{price}" required="required">
+				<button name="addTransactionBtn" type="submit">Add Transaction</button>
+			</fieldset>
+		</form>
+	</div>
 </body>
-
 </html>
