@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class HabitQueryServiceNoSql implements HabitQueryService {
     
-        private final HabitRepository habitRepository;
+        private HabitRepository habitRepository;
         private Map<String, HabitDto> habits = null;
     
         @Override
@@ -35,5 +35,12 @@ public class HabitQueryServiceNoSql implements HabitQueryService {
         public HabitDto getHabit(String name) {
             return habits.get(name);
         }
+
+
+		public void save(Habit habit) {
+            
+            habitRepository.insert(habit);
+
+		}
 
 }

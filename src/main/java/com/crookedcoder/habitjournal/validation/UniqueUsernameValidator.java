@@ -3,14 +3,14 @@ package com.crookedcoder.habitjournal.validation;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.crookedcoder.habitjournal.repository.UserRepository;
+import com.crookedcoder.habitjournal.repository.HjUserRepository;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class UniqueUsernameValidator implements ConstraintValidator<UniqueUsername, String> {
 
-	private UserRepository repository;
+	private HjUserRepository repository;
 	
 	@Override
 	public boolean isValid(String username, ConstraintValidatorContext context) {

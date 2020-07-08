@@ -1,9 +1,9 @@
 package com.crookedcoder.habitjournal.service;
 
-import com.crookedcoder.habitjournal.entity.HabitJournalUser;
+import com.crookedcoder.habitjournal.entity.HjUser;
 import com.crookedcoder.habitjournal.event.UserRegistrationEvent;
 import com.crookedcoder.habitjournal.model.UserDto;
-import com.crookedcoder.habitjournal.repository.UserRepository;
+import com.crookedcoder.habitjournal.repository.HjUserRepository;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
@@ -16,15 +16,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserRegistrationService {
     
-    private final UserRepository repository;
+    private HjUserRepository repository;
 	private final PasswordEncoder encoder;
 	private final ApplicationEventPublisher eventPublisher;
 	private final boolean TOTP_ENABLED = false;
-	@Value(value = "${disableEmailVerification}")
-	private boolean disableEmailVerification;
+	private boolean disableEmailVerification = true;
 	
 	public void registerNewUser(UserDto user) {
-		HabitJournalUser habitJournalUser = new HabitJournalUser(
+		HjUser habitJournalUser = new HjUser(
 				user.getUsername(), 
 				user.getFirstname(), 
 				user.getLastname(),

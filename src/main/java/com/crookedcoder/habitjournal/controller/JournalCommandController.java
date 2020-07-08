@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JournalCommandController {
 
-	private final JournalCommandService commandService;
+	private JournalCommandService commandService;
 	
 	@PostMapping("/journal/entries")
 	public ModelAndView AddEntryToJournal(@ModelAttribute("entry") AddEntryToJournalDto request) {

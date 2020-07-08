@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class MilestoneQueryServiceNoSql implements MilestoneQueryService {
 
-    private final MilestoneRepository milestoneRepository;
+    private MilestoneRepository milestoneRepository;
     private Map<String, MilestoneDto> milestones = null;
 
     @Override

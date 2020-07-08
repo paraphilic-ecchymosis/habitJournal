@@ -1,6 +1,6 @@
 package com.crookedcoder.habitjournal.event;
 
-import com.crookedcoder.habitjournal.entity.HabitJournalUser;
+import com.crookedcoder.habitjournal.entity.HjUser;
 
 import org.springframework.context.ApplicationEvent;
 
@@ -10,9 +10,9 @@ import lombok.Getter;
 public class UserRegistrationEvent extends ApplicationEvent {
 
 	private static final long serialVersionUID = -4113549487933175429L;
-	private final HabitJournalUser user;
+	private final HjUser user;
 	
-	public UserRegistrationEvent(HabitJournalUser user) {
+	public UserRegistrationEvent(HjUser user) {
 		super(user);
 		this.user=user;
 		

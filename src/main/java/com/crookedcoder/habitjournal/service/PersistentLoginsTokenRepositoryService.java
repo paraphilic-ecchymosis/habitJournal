@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PersistentLoginsTokenRepositoryService implements PersistentTokenRepository {
 
-	private final PersistentLoginsTokenRepository tokenRepository;
+	private PersistentLoginsTokenRepository tokenRepository;
 	
 	@Override
 	public void createNewToken(PersistentRememberMeToken token) {

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.crookedcoder.habitjournal.annotations.HabitJournalPrincipal;
 import com.crookedcoder.habitjournal.exceptions.InvalidTOTPVerificationCode;
 import com.crookedcoder.habitjournal.model.TotpCode;
-import com.crookedcoder.habitjournal.service.TOTPService;
+import com.crookedcoder.habitjournal.service.TotpQueryServiceNoSql;
 import com.crookedcoder.habitjournal.userdetails.MFAUser;
 
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AccountController {
 
-	private final TOTPService totpService;
+	private TotpQueryServiceNoSql totpService;
 	
 	@GetMapping("/account")
 	public String getAccount(Model model,@AuthenticationPrincipal MFAUser user ) {

@@ -2,7 +2,7 @@ package com.crookedcoder.habitjournal.controller;
 
 import java.util.List;
 
-import com.crookedcoder.habitjournal.entity.HabitJournalUser;
+import com.crookedcoder.habitjournal.entity.HjUser;
 import com.crookedcoder.habitjournal.service.AdminService;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +14,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JournalApiController {
 	
-	private final AdminService adminService;
+	private AdminService adminService;
 	
 	@GetMapping("/api/users")
-	public List<HabitJournalUser> getUsers() {
+	public List<HjUser> getUsers() {
 		return this.adminService.getAllUsers();
 	}	
 	

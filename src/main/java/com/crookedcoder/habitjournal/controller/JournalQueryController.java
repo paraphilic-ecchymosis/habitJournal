@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JournalQueryController {
     
-    private final JournalQueryService journalService;
+    private JournalQueryService journalService;
 	
 	@GetMapping("/")
 	public String index() {
@@ -38,14 +38,14 @@ public class JournalQueryController {
 		return model;
 	}
 	
-	@GetMapping(value = {"/journal/{id}"})
-	public ModelAndView listEntriesForJournal(@PathVariable String id) {
-		ListEntriesDto entries = journalService.getJournalEntries();
-		ModelAndView model = new ModelAndView();
-		model.addObject("entries", entries.getEntries());
-		model.addObject("selected",new DeleteEntriesDto());
-		model.setViewName("entries");
-		return model;
-	}
+	// @GetMapping(value = {"/journal/{id}"})
+	// public ModelAndView listEntriesForJournal(@PathVariable String id) {
+	// 	ListEntriesDto entries = journalService.getJournalEntries();
+	// 	ModelAndView model = new ModelAndView();
+	// 	model.addObject("entries", entries.getEntries());
+	// 	model.addObject("selected",new DeleteEntriesDto());
+	// 	model.setViewName("entries");
+	// 	return model;
+	// }
 	
 }

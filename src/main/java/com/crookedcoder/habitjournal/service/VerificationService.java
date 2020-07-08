@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class VerificationService {
     
-    private final VerificationCodeRepository repository;
+    private VerificationCodeRepository repository;
 		
 	public String getVerifictionIdByUsername(String username) {
 		Verification verification = repository.findByUsername(username);

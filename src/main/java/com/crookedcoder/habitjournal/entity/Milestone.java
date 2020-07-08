@@ -16,7 +16,7 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @ToString
-@Document
+@Document(collection = "milestone")
 public class Milestone {
 
     // TODO: This isn't right.
@@ -30,9 +30,7 @@ public class Milestone {
 	private final String name;
     @NonNull
     private String description;
-    @NonNull
     private String goal;
-    @NonNull
     private DateTime dueDate;
     // TODO: Maybe enum for this now that
     // I have renamed it.....derp.

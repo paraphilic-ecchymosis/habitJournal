@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class JournalController {
     
 
-    @GetMapping("journal")
-    public String getJournal(Map<String, Object> model) {
-        model.put("message", "Jacob");
-        return "journal";
-    }
+    // @GetMapping("journal")
+    // public String getJournal(Map<String, Object> model) {
+    //     model.put("message", "Jacob");
+    //     return "journal";
+    // }
 }

@@ -25,18 +25,18 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
 import com.crookedcoder.habitjournal.model.Authorities;
-import com.crookedcoder.habitjournal.service.TOTPService;
+import com.crookedcoder.habitjournal.service.TotpQueryServiceNoSql;
 
 @Component
 public class TotpAuthenticationFilter extends GenericFilterBean {
     
-    private final TOTPService totpService;
+    private final TotpQueryServiceNoSql totpQueryServiceNoSql;
 	private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 	private String onSuccessUrl = "/journal";
 	private String onfailureUrl = "/totp-login-error";
 	
-	public TotpAuthenticationFilter(TOTPService totpService) {
-		this.totpService=totpService;
+	public TotpAuthenticationFilter(TotpQueryServiceNoSql totpService) {
+		this.totpQueryServiceNoSql=totpService;
 	}
 	
 	@Override
@@ -70,7 +70,7 @@ public class TotpAuthenticationFilter extends GenericFilterBean {
 	}
 	
 	private boolean codeIsValid(String username, String code) {
-		return code != null && totpService.verifyCode(username, Integer.valueOf(code));
+		return code != null && totpQueryServiceNoSql.verifyCode(username, Integer.valueOf(code));
 	}
 	
 	private String obtainCode(ServletRequest request) {

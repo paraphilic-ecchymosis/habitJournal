@@ -14,7 +14,7 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @ToString
-@Document
+@Document(collection = "habit")
 public class Habit {
 
     @Id

@@ -52,10 +52,10 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .roles("ADMIN");
     }
 
-    @Override
-    @Bean
-    public UserDetailsService userDetailsServiceBean() throws Exception {
-        return super.userDetailsServiceBean();
-    }
+    // @Override
+    // @Bean
+    // public UserDetailsService userDetailsServiceBean() throws Exception {
+    //     return super.userDetailsServiceBean();
+    // }
 
 }

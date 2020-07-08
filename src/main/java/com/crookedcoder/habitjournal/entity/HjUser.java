@@ -12,11 +12,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Document
+@Document(collection = "hjuser")
 @RequiredArgsConstructor
 @Getter
 @ToString
-public class HabitJournalUser {
+public class HjUser {
     	
 	@Id
 	private String id;

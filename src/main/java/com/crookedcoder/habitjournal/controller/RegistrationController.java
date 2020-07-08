@@ -19,8 +19,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RegistrationController {
     
-    private final UserRegistrationService registrationService;
-	private final JournalCommandService journalService;
+    private UserRegistrationService registrationService;
+	private JournalCommandService journalService;
 	
 	@GetMapping("/register")
 	public String register(Model model) {

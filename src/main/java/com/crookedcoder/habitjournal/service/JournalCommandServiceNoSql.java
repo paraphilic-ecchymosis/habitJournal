@@ -26,9 +26,9 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class JournalCommandServiceNoSql  implements JournalCommandService {
     
-    private final JournalRepository journalRepository;
-	private final HabitRepository habitRepository;
-	private final JournalAccessControlRepository accessControl;
+    private JournalRepository journalRepository;
+	private HabitRepository habitRepository;
+	private JournalAccessControlRepository accessControl;
 	
 	@Override
 	public void addEntryToJournal(AddEntryToJournalDto request) {

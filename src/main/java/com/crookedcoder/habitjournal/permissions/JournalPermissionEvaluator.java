@@ -19,8 +19,8 @@ import lombok.RequiredArgsConstructor;
 @Component
 public class JournalPermissionEvaluator implements PermissionEvaluator {
     
-    private final JournalAccessControlRepository journalAccessControlRepo;
-	private final JournalRepository journalRepository;
+    private JournalAccessControlRepository journalAccessControlRepository;
+	private JournalRepository journalRepository;
 	
 	@Override
 	public boolean hasPermission(Authentication authentication, Object targetDomainObject, Object permission) {
@@ -46,7 +46,7 @@ public class JournalPermissionEvaluator implements PermissionEvaluator {
 	}
 	
 	private boolean userHasReadPermissionForTargetJournal(String username, String journalId) {
-		List<JournalAccessControl> userJournalAC = this.journalAccessControlRepo.findAllByUsername(username);
+		List<JournalAccessControl> userJournalAC = this.journalAccessControlRepository.findAllByUsername(username);
 		if(userJournalAC != null) {
 			return userJournalAC.stream().anyMatch(ac -> ac.getJournalId().equals(journalId));
 		}
