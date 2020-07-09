@@ -1,22 +1,27 @@
-package com.crookedcoder.habitjournal.userdetails;
+// package com.crookedcoder.habitjournal.userdetails;
 
-import javax.servlet.http.HttpServletRequest;
+// import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
+// import org.springframework.security.web.authentication.WebAuthenticationDetails;
 
-import lombok.Getter;
+// import lombok.Getter;
 
-public class AdditionalAuthenticationDetails extends WebAuthenticationDetails{
+// public class AdditionalAuthenticationDetails extends WebAuthenticationDetails{
 
-	@Getter
-	private String securityPin;
+// 	public AdditionalAuthenticationDetails(HttpServletRequest request) {
+// 		super(request);
+// 		// TODO Auto-generated constructor stub
+// 	}
 
-	public AdditionalAuthenticationDetails(HttpServletRequest request) {
-		super(request);
-		String securityPin = request.getParameter("securityPin");
-		if(securityPin != null) {
-			this.securityPin=securityPin;
-		}
-	}
+// 	// @Getter
+// 	// private String securityPin;
+
+// 	// public AdditionalAuthenticationDetails(HttpServletRequest request) {
+// 	// 	super(request);
+// 	// 	String securityPin = request.getParameter("securityPin");
+// 	// 	if(securityPin != null) {
+// 	// 		this.securityPin=securityPin;
+// 	// 	}
+// 	// }
 	
-}
+// }

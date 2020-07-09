@@ -1,11 +1,11 @@
-package com.crookedcoder.habitjournal.service;
+// package com.crookedcoder.habitjournal.service;
 
-import java.util.List;
+// import java.util.List;
 
-import com.crookedcoder.habitjournal.model.HabitDto;
+// import com.crookedcoder.habitjournal.model.HabitDto;
 
-public interface HabitQueryService {
+// public interface HabitQueryService {
 
-	List<HabitDto> getHabits();
-	HabitDto getHabit(String name);
-}
+// 	List<HabitDto> getHabits();
+// 	HabitDto getHabit(String name);
+// }

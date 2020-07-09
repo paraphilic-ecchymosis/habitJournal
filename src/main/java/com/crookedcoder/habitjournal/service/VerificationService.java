@@ -1,43 +1,43 @@
-package com.crookedcoder.habitjournal.service;
+// package com.crookedcoder.habitjournal.service;
 
-import java.util.Optional;
+// import java.util.Optional;
 
-import org.springframework.stereotype.Service;
+// import org.springframework.stereotype.Service;
 
-import com.crookedcoder.habitjournal.entity.Verification;
-import com.crookedcoder.habitjournal.repository.VerificationCodeRepository;
+// import com.crookedcoder.habitjournal.entity.Verification;
+// import com.crookedcoder.habitjournal.repository.VerificationCodeRepository;
 
-import lombok.RequiredArgsConstructor;
+// import lombok.RequiredArgsConstructor;
 
-@Service
-@RequiredArgsConstructor
-public class VerificationService {
+// @Service
+// @RequiredArgsConstructor
+// public class VerificationService {
     
-    private VerificationCodeRepository repository;
+//     private VerificationCodeRepository repository;
 		
-	public String getVerifictionIdByUsername(String username) {
-		Verification verification = repository.findByUsername(username);
-		if(verification != null) {
-			return verification.getId();
-		}
-		return null;
-	}
+// 	public String getVerifictionIdByUsername(String username) {
+// 		Verification verification = repository.findByUsername(username);
+// 		if(verification != null) {
+// 			return verification.getId();
+// 		}
+// 		return null;
+// 	}
 	
-	public String createVerification(String username) {
-		if (!repository.existsByUsername(username)) {
-			Verification verification = new Verification(username);
-			verification = repository.save(verification);
-			return verification.getId();
-		}
-		return getVerifictionIdByUsername(username);
-	}
+// 	public String createVerification(String username) {
+// 		if (!repository.existsByUsername(username)) {
+// 			Verification verification = new Verification(username);
+// 			verification = repository.save(verification);
+// 			return verification.getId();
+// 		}
+// 		return getVerifictionIdByUsername(username);
+// 	}
 	
-	public String getUsernameForId(String id) {
-		Optional<Verification> verification = repository.findById(id);
-		if(verification.isPresent()) {
-			return verification.get().getUsername();
-		}
-		return null;
-	}
+// 	public String getUsernameForId(String id) {
+// 		Optional<Verification> verification = repository.findById(id);
+// 		if(verification.isPresent()) {
+// 			return verification.get().getUsername();
+// 		}
+// 		return null;
+// 	}
 	
-}
+// }

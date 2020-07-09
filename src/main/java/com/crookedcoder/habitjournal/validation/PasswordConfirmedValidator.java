@@ -1,17 +1,17 @@
-package com.crookedcoder.habitjournal.validation;
+// package com.crookedcoder.habitjournal.validation;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+// import javax.validation.ConstraintValidator;
+// import javax.validation.ConstraintValidatorContext;
 
-import com.crookedcoder.habitjournal.model.UserDto;
+// import com.crookedcoder.habitjournal.model.UserDto;
 
-public class PasswordConfirmedValidator implements ConstraintValidator<PasswordConfirmed, Object>{
+// public class PasswordConfirmedValidator implements ConstraintValidator<PasswordConfirmed, Object>{
 
-	@Override
-	public boolean isValid(Object user, ConstraintValidatorContext context) {
-		String password = ((UserDto)user).getPassword();
-		String confirmedPassword = ((UserDto)user).getConfirmPassword();
-		return password.equals(confirmedPassword);
-	}
+// 	@Override
+// 	public boolean isValid(Object user, ConstraintValidatorContext context) {
+// 		String password = ((UserDto)user).getPassword();
+// 		String confirmedPassword = ((UserDto)user).getConfirmPassword();
+// 		return password.equals(confirmedPassword);
+// 	}
 
-}
+// }

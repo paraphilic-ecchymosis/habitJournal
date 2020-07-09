@@ -1,14 +1,14 @@
-package com.crookedcoder.habitjournal.model;
+// package com.crookedcoder.habitjournal.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+// import lombok.AllArgsConstructor;
+// import lombok.Getter;
+// import lombok.Setter;
 
-@AllArgsConstructor
-@Getter
-@Setter
-public class TOTPDetailsDto {
+// @AllArgsConstructor
+// @Getter
+// @Setter
+// public class TOTPDetailsDto {
 
-	private String qrUrl;
+// 	private String qrUrl;
 	
-}
+// }

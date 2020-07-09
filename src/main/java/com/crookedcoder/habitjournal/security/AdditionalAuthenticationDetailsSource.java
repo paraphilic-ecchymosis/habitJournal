@@ -1,13 +1,13 @@
-package com.crookedcoder.habitjournal.security;
+// package com.crookedcoder.habitjournal.security;
 
-import javax.servlet.http.HttpServletRequest;
+// import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+// import org.springframework.security.web.authentication.WebAuthenticationDetails;
+// import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 
-public class AdditionalAuthenticationDetailsSource extends WebAuthenticationDetailsSource {
-        @Override
-        public WebAuthenticationDetails buildDetails(HttpServletRequest context) {
-            return new AdditionalAuthenticationDetails(context);
-        }
-}
+// public class AdditionalAuthenticationDetailsSource extends WebAuthenticationDetailsSource {
+//         @Override
+//         public WebAuthenticationDetails buildDetails(HttpServletRequest context) {
+//             return new AdditionalAuthenticationDetails(context);
+//         }
+// }

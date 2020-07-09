@@ -1,13 +1,13 @@
-package com.crookedcoder.habitjournal.exceptions;
+// package com.crookedcoder.habitjournal.exceptions;
 
-public class InvalidTOTPVerificationCode extends RuntimeException {
+// public class InvalidTOTPVerificationCode extends RuntimeException {
 
-	public InvalidTOTPVerificationCode(String msg) {
-		super(msg);
-	}
+// 	public InvalidTOTPVerificationCode(String msg) {
+// 		super(msg);
+// 	}
 	
-	public InvalidTOTPVerificationCode(String msg, Throwable ex) {
-		super(msg,ex);
-	}
+// 	public InvalidTOTPVerificationCode(String msg, Throwable ex) {
+// 		super(msg,ex);
+// 	}
 	
-}
+// }

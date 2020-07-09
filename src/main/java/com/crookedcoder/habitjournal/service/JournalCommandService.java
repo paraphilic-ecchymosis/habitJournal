@@ -1,11 +1,11 @@
-package com.crookedcoder.habitjournal.service;
+// package com.crookedcoder.habitjournal.service;
 
-import com.crookedcoder.habitjournal.model.AddEntryToJournalDto;
+// import com.crookedcoder.habitjournal.model.AddEntryToJournalDto;
 
-public interface JournalCommandService {
+// public interface JournalCommandService {
     
-    void addEntryToJournal(AddEntryToJournalDto request);
-	void removeEntryFromJournal(String entryId);
-	void createNewJournal(String username);
-	boolean userHasAJournal(String username);
-}
+//     void addEntryToJournal(AddEntryToJournalDto request);
+// 	void removeEntryFromJournal(String entryId);
+// 	void createNewJournal(String username);
+// 	boolean userHasAJournal(String username);
+// }

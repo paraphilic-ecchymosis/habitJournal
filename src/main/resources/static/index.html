@@ -1,36 +1,102 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!doctype html>
+<html class="no-js" lang="" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Habit Journal</title>
+    <meta charset="utf-8">
+    <title>Index Page | Persistence Journal</title>
+    <meta name="description" content="Something, something, something.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jacob Crook">
+
+    <link rel="canonical" href="">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- TODO: Place favicon.ico in the root directory -->
+    <link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/boiler-plate.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dev-only.css">
+    <!-- TODO: <link rel="stylesheet" href="css/pjhome-styles.css"> -->
+
     <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/webjars/bootstrap/4.1.0/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
     <link rel="stylesheet" type="text/css" href="../css/portfolio.css" th:href="@{css/portfolio.css}" />
     <script src="http://cdn.jsdelivr.net/webjars/bootstrap/4.1.0/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     <script src="http://cdn.jsdelivr.net/webjars/jquery/3.3.1/jquery.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
 
+
+    <script src="js/vendor/jquery-3.4.1.min.js"></script>
+    <!-- TODO: <script src="./assets/js/pj-scripts.js"></script> -->
+    <!-- TODO: <script src="./assets/js/main.js"></script> -->
+    <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm  navbar-light crypt_nav">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Spring - Habit Journal</a>
+    <div id="main" class="container relative">
+        <!--[if IE]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+          <![endif]-->
+
+        <section id="header">
+            <!-- NavBar Start -->
+            <div class="relative">
+                <div class="flex-container flex-col nav-salesbar-wrap">
+                    <header class="flex-item">
+                        <div id="mobileNavFloatTrigger" class="fixed"></div>
+                        <div class="mobile-nav-wrap fixed">
+                            <div class="header mx fixed"></div>
+                            <div class="header-nav-area"></div>
+                        </div>
+                        <div class="header nomx">
+                            <div class="inner relative">
+                                <div class="header-logo">
+                                    <a href="home-template">
+                                        <img src="assets\img\logo.png" alt="Persistence Journal">
+                                    </a>
+                                </div>
+                                <div class="header-support"><i class="fa fa-phone"></i>&nbsp;: <a href="tel:18001232345">1.800.123.2345</a></div>
+                                <nav class="header-dx-nav flex-container flex-row flex-center" role="navigation">
+                                    <div class="flex-item header-nav-item">
+                                        <div class="header-nav-category">
+                                            <a href="home-template">Home</a>
+                                        </div>
+                                    </div>
+                                    <div class="flex-item header-nav-item">
+                                        <div class="header-nav-category">
+                                            <a href="login">Login</a>
+                                        </div>
+                                    </div>
+                                    <div class="flex-item header-nav-item">
+                                        <div class="header-nav-category">
+                                            <a href="journal">Journal</a>
+                                        </div>
+                                    </div>
+                                    <div class="flex-item header-nav-item">
+                                        <div class="header-nav-category">
+                                            <a href="behaviors-template">Behaviors</a>
+                                        </div>
+                                    </div>
+                                    <div class="flex-item header-nav-item">
+                                        <div class="header-nav-category">
+                                            <a href="milestones">Milestones</a>
+                                        </div>
+                                    </div>
+
+                                </nav>
+                            </div>
+                        </div>
+                    </header>
+                </div>
             </div>
-            <ul class="nav navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/portfolio">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-            </ul>
+            <!-- NavBar End -->
+        </section>
 
-        </div>
-    </nav>
+        <main id="content-area" role="main">
+        </main>
 
-    <div class="container">
-        <h3>Welcome to Crypto Portfolio</h3>
+        <section id="footer">
+        </section>
 
     </div>
 </body>

@@ -1,20 +1,20 @@
-package com.crookedcoder.habitjournal.validation;
+// package com.crookedcoder.habitjournal.validation;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+// import javax.validation.ConstraintValidator;
+// import javax.validation.ConstraintValidatorContext;
 
-import com.crookedcoder.habitjournal.repository.HjUserRepository;
+// import com.crookedcoder.habitjournal.repository.HjUserRepository;
 
-import lombok.AllArgsConstructor;
+// import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
-public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, String> {
+// @AllArgsConstructor
+// public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, String> {
 
-	private HjUserRepository repository;
+// 	private HjUserRepository repository;
 	
-	@Override
-	public boolean isValid(String email, ConstraintValidatorContext context) {
-		return email != null && repository.findByEmail(email) == null ;
-	}
+// 	@Override
+// 	public boolean isValid(String email, ConstraintValidatorContext context) {
+// 		return email != null && repository.findByEmail(email) == null ;
+// 	}
 
-}
+// }
