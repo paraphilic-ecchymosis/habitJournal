@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.crookedcoder.habitjournal.entities.Habit;
 
-@Repository
 public interface HabitRepository extends MongoRepository<Habit, String>{
 	
 	
