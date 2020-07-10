@@ -1,12 +1,12 @@
-// package com.crookedcoder.habitjournal.model;
+package com.crookedcoder.habitjournal.model;
 
-// import lombok.Getter;
-// import lombok.Setter;
+import lombok.Getter;
+import lombok.Setter;
 
-// @Getter
-// @Setter
-// public class TotpCode {
+@Getter
+@Setter
+public class TotpCode {
 
-// 	private String code;
+	private String code;
 	
-// }
+}

@@ -1,12 +1,12 @@
-// package com.crookedcoder.habitjournal.service;
+package com.crookedcoder.habitjournal.service;
 
-// public interface TotpQueryService {
+public interface TotpQueryService {
 	
-// 	public String generateNewGoogleAuthQrUrl(String username);
+	public String generateNewGoogleAuthQrUrl(String username);
 	
-// 	public boolean isTotpEnabled(String username);
+	public boolean isTotpEnabled(String username);
 	
-// 	public void enableTOTPForUser(String username, int code);
+	public void enableTOTPForUser(String username, int code);
 	
-// 	public boolean verifyCode(String username, int code);
-// }
+	public boolean verifyCode(String username, int code);
+}

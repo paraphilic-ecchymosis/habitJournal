@@ -1,54 +1,53 @@
-// package com.crookedcoder.habitjournal.service;
+package com.crookedcoder.habitjournal.service;
 
-// import java.util.ArrayList;
-// import java.util.HashMap;
-// import java.util.List;
-// import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-// import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-// import com.crookedcoder.habitjournal.entity.Habit;
-// import com.crookedcoder.habitjournal.model.HabitDto;
-// import com.crookedcoder.habitjournal.repository.HabitRepository;
+import com.crookedcoder.habitjournal.entities.Habit;
+import com.crookedcoder.habitjournal.model.HabitDto;
+import com.crookedcoder.habitjournal.repositories.HabitRepository;
 
-// import lombok.RequiredArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-// @RequiredArgsConstructor
-// @Service
-// public class HabitQueryServiceNoSql implements HabitQueryService {
+@RequiredArgsConstructor
+@Service
+public class HabitQueryServiceNoSql implements HabitQueryService {
 
-        
-//         private HabitRepository habitRepository;
-//         private Map<String, HabitDto> habits = null;
+        @Autowired
+        private HabitRepository habitRepository;
+        private Map<String, HabitDto> habits = null;
     
-//         @Override
-//         public List<HabitDto> getHabits() {
-//             // if(this.habits == null) {
-//             //     this.habits = new HashMap<>();
-//             //     for(Habit habit : habitRepository.findAll()) {
-//             //         this.habits.put(habit.getName(), new HabitDto(habit.getId(), habit.getName()));
-//             //     }
-//             // }
-//             // return new ArrayList<>(habits.values());
-//             return null;
-//         }
+        @Override
+        public List<HabitDto> getHabits() {
+            if(this.habits == null) {
+                this.habits = new HashMap<>();
+                for(Habit habit : habitRepository.findAll()) {
+                    this.habits.put(habit.getName(), new HabitDto(habit));
+                }
+            }
+            return new ArrayList<>(habits.values());
+        }
     
-//         @Override
-//         public HabitDto getHabit(String name) {
-//             return habits.get(name);
-//         }
+        @Override
+        public HabitDto getHabit(String name) {
+            return habits.get(name);
+        }
 
-//         // private void createHabitEntity(HabitDto request) {
-//         //     Habit habit = new Habit(request.getName(), habit, Integer.parseInt(request.getUnitsCompleted()), Long.parseLong(request.getTimeStamp()));
-//         //     //Habit habit = habitRepository.findByID(request.getHabitID());
-//         //     //return entry;
-//         // }
+        private Habit createHabitEntity(HabitDto request) {
+            Habit habit = new Habit(request.getName());
+            return habit;
+        }
 
 
-// 		public void save(Habit habit) {
+		public void save(Habit habit) {
             
-//             habitRepository.insert(habit);
+            habitRepository.insert(habit);
 
-// 		}
+		}
 
-// }
+}

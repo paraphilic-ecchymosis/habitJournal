@@ -1,13 +1,13 @@
-// package com.crookedcoder.habitjournal.repositories;
+package com.crookedcoder.habitjournal.repositories;
 
-// import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-// import com.crookedcoder.habitjournal.entity.TOTPDetails;
+import com.crookedcoder.habitjournal.entities.TOTPDetails;
 
-// public interface TOTPDetailsRepository extends MongoRepository<TOTPDetails, String>{
+public interface TOTPDetailsRepository extends MongoRepository<TOTPDetails, String>{
 
-// 	TOTPDetails findByUsername(String username);
-// 	boolean existsByUsername(String username);
-// 	Long deleteByUsername(String username);
+	TOTPDetails findByUsername(String username);
+	boolean existsByUsername(String username);
+	Long deleteByUsername(String username);
 	
-// }
+}

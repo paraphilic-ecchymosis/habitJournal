@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-//@Document
+@Document
 @RequiredArgsConstructor
 @Getter
 public class Verification {

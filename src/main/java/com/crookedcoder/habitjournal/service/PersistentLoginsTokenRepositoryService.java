@@ -6,8 +6,8 @@
 // import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 // import org.springframework.stereotype.Component;
 
-// import com.crookedcoder.habitjournal.entity.PersistentLoginToken;
-// import com.crookedcoder.habitjournal.repository.PersistentLoginsTokenRepository;
+// import com.crookedcoder.habitjournal.entities.PersistentLoginToken;
+// import com.crookedcoder.habitjournal.repositories.PersistentLoginsTokenRepository;
 
 // import lombok.RequiredArgsConstructor;
 

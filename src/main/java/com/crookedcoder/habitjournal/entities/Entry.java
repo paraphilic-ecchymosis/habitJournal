@@ -16,10 +16,10 @@ import lombok.ToString;
 @Document(collection = "entries")
 public class Entry {
     
-    //@Id
+    @Id
     private String id;
     private final String username;
-    //@DBRef
+    @DBRef
     private final String habit;
 	private final String unitsCompleted;
 	private final String timestamp;

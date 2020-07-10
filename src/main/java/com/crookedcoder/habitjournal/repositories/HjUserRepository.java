@@ -1,10 +1,11 @@
-// package com.crookedcoder.habitjournal.repository;
+package com.crookedcoder.habitjournal.repositories;
 
-// import org.springframework.data.mongodb.repository.MongoRepository;
+import com.crookedcoder.habitjournal.entities.HjUser;
 
-// import com.crookedcoder.habitjournal.entity.HjUser;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-// public interface HjUserRepository extends MongoRepository<HjUser, String> {
+
+public interface HjUserRepository extends MongoRepository<HjUser, String> {
 
 	
-// }
+}

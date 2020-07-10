@@ -1,12 +1,12 @@
-// package com.crookedcoder.habitjournal.service;
+package com.crookedcoder.habitjournal.service;
 
-// import java.util.List;
+import java.util.List;
 
-// import com.crookedcoder.habitjournal.model.MilestoneDto;
+import com.crookedcoder.habitjournal.model.MilestoneDto;
 
 
-// public interface MilestoneQueryService {
+public interface MilestoneQueryService {
  
-//     List<MilestoneDto> getMilestones();
-// 	MilestoneDto getMilestone(String name);
-// }
+    List<MilestoneDto> getMilestones();
+	MilestoneDto getMilestone(String name);
+}

@@ -1,9 +1,8 @@
 package com.crookedcoder.habitjournal.repositories;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
-
 import com.crookedcoder.habitjournal.entities.Habit;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface HabitRepository extends MongoRepository<Habit, String>{
 	

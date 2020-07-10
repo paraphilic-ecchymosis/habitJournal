@@ -1,22 +1,28 @@
-// package com.crookedcoder.habitjournal.model;
+package com.crookedcoder.habitjournal.model;
 
-// import lombok.EqualsAndHashCode;
-// import lombok.Getter;
-// import lombok.RequiredArgsConstructor;
-// import lombok.ToString;
+import com.crookedcoder.habitjournal.entities.Habit;
 
-// @RequiredArgsConstructor
-// @Getter
-// @ToString
-// @EqualsAndHashCode
-// public class HabitDto {
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
-// 	private final String id;
-// 	private final String name;
-// 	private final String description;
-// 	private final String goal;
-//     private final String recurring;
-//     private final String minimum;
-//     private final String isActive;
+@RequiredArgsConstructor
+@Getter
+@ToString
+@EqualsAndHashCode
+public @Data class HabitDto {
+
+	public HabitDto(Habit habit) {
+        
+	}
+	private String id;
+	private String name;
+	private String description;
+	private String goal;
+    private String recurring;
+    private String minimum;
+    private String isActive;
 	
-// }
+}

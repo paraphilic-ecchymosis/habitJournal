@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-//@Document(collection = "persistentlogintoken")
+@Document(collection = "persistentlogintoken")
 @RequiredArgsConstructor
 @Getter
 public class PersistentLoginToken {

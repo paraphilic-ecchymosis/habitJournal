@@ -1,12 +1,12 @@
-// package com.crookedcoder.habitjournal.repositories;
+package com.crookedcoder.habitjournal.repositories;
 
-// import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-// import com.crookedcoder.habitjournal.entity.PersistentLoginToken;
+import com.crookedcoder.habitjournal.entities.PersistentLoginToken;
 
-// public interface PersistentLoginsTokenRepository extends MongoRepository<PersistentLoginToken, String> {
+public interface PersistentLoginsTokenRepository extends MongoRepository<PersistentLoginToken, String> {
 
-// 	PersistentLoginToken findBySeries(String series);
-// 	PersistentLoginToken findByUsername(String username);
+	PersistentLoginToken findBySeries(String series);
+	PersistentLoginToken findByUsername(String username);
 	
-// }
+}

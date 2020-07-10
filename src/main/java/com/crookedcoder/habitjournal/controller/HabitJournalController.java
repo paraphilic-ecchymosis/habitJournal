@@ -1,33 +1,42 @@
-// package com.crookedcoder.habitjournal.controller;
+package com.crookedcoder.habitjournal.controller;
 
-// import java.util.List;
+import javax.validation.Valid;
 
-// import com.crookedcoder.habitjournal.entities.Habit;
-// import com.crookedcoder.habitjournal.repositories.HabitRepository;
+import com.crookedcoder.habitjournal.entities.Habit;
+import com.crookedcoder.habitjournal.model.HabitDto;
+import com.crookedcoder.habitjournal.service.HabitQueryServiceNoSql;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.web.bind.annotation.RequestBody;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.RequestMethod;
-// import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
-// @RestController
-// @RequestMapping(value = "/hj")
-// public class HabitJournalController {
+@Controller
+public class HabitJournalController {
 
-//     @Autowired
-//     private HabitRepository habitRepository;
+    @Autowired
+    private HabitQueryServiceNoSql habitQueryServiceNoSql;
+	
+	@PostMapping("/habits")
+	public String createHabit(@Valid @ModelAttribute("habit") HabitDto habitDto, BindingResult result) {
+		if(result.hasErrors()) {
+            return "habits";
+		}
+        Habit habit = new Habit(habitDto.getName());
+        this.habitQueryServiceNoSql.save(habit);
+        return "redirect:habits?success";
+        
+    }
+    
+    @GetMapping("/habits")
+	public String createHabit(Model model) {
+        model.addAttribute("habit",new HabitDto());
 
-
-//     @RequestMapping(value = "/habits", method = RequestMethod.GET)
-//     public List<Habit> getAllHabits() {
-//         return habitRepository.findAll();
-//     }
-
-//     @RequestMapping(value = "/habits", method = RequestMethod.POST)
-//     public Habit addNewHabit(@RequestBody Habit habit){
-//         return habitRepository.save(habit);
-//     }
+		return "habits";
+	}
 
     
-// }
+}

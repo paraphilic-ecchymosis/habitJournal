@@ -15,7 +15,7 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @ToString
-//@Document(collection = "milestone")
+@Document(collection = "milestone")
 public class Milestone {
 
     // TODO: This isn't right.

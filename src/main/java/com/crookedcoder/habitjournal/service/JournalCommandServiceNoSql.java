@@ -10,15 +10,15 @@
 // import org.springframework.security.access.prepost.PreFilter;
 // import org.springframework.stereotype.Service;
 
-// import com.crookedcoder.habitjournal.entity.Habit;
-// import com.crookedcoder.habitjournal.entity.Journal;
-// import com.crookedcoder.habitjournal.entity.JournalAccessControl;
-// import com.crookedcoder.habitjournal.entity.Entry;
-// import com.crookedcoder.habitjournal.entity.Type;
+// import com.crookedcoder.habitjournal.entities.Habit;
+// import com.crookedcoder.habitjournal.entities.Journal;
+// import com.crookedcoder.habitjournal.entities.JournalAccessControl;
+// import com.crookedcoder.habitjournal.entities.Entry;
+// import com.crookedcoder.habitjournal.entities.Type;
 // import com.crookedcoder.habitjournal.model.AddEntryToJournalDto;
-// import com.crookedcoder.habitjournal.repository.HabitRepository;
-// import com.crookedcoder.habitjournal.repository.JournalAccessControlRepository;
-// import com.crookedcoder.habitjournal.repository.JournalRepository;
+// import com.crookedcoder.habitjournal.repositories.HabitRepository;
+// import com.crookedcoder.habitjournal.repositories.JournalAccessControlRepository;
+// import com.crookedcoder.habitjournal.repositories.JournalRepository;
 
 // import lombok.RequiredArgsConstructor;
 
@@ -33,7 +33,7 @@
 // 	@Override
 // 	public void addEntryToJournal(AddEntryToJournalDto request) {
 // 		Journal journal = journalRepository.findByUsername(getUsername());
-// 		Entry entry = createEntryEntity(request);
+// 		Entry entry = createEntryentities(request);
 // 		journal.addEntry(entry);
 // 		journalRepository.save(journal);
 // 	}
@@ -42,7 +42,7 @@
 // 	public void addEntryToJournal(List<AddEntryToJournalDto> entriesDto) {
 // 		Journal journal = journalRepository.findByUsername(getUsername());
 // 		for(AddEntryToJournalDto entryDto : entriesDto) {
-// 			Entry entry = createEntryEntity(entryDto);
+// 			Entry entry = createEntryentities(entryDto);
 // 			journal.addEntry(entry);
 // 		}
 // 		journalRepository.save(journal);
@@ -63,7 +63,7 @@
 // 		this.accessControl.save(journalAccessControl);
 // 	}
 	
-// 	private Entry createEntryEntity(AddEntryToJournalDto request) {
+// 	private Entry createEntryentities(AddEntryToJournalDto request) {
 // 		Habit habit = habitRepository.findByID(request.getHabitID());
 // 		Entry entry = new Entry(request.getUsername(), habit, Integer.parseInt(request.getUnitsCompleted()), Long.parseLong(request.getTimeStamp()));
 // 		return entry;
