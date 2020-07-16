@@ -39,7 +39,7 @@ public class HabitQueryServiceNoSql implements HabitQueryService {
         }
 
         private Habit createHabitEntity(HabitDto request) {
-            Habit habit = new Habit(request.getName());
+            Habit habit = new Habit();
             return habit;
         }
 

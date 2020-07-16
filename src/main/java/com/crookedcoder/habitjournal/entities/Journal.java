@@ -4,7 +4,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.crookedcoder.habitjournal.entities.Entry;
+import com.crookedcoder.habitjournal.entities.Milestone;
+import com.crookedcoder.habitjournal.entities.Habit;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Getter;
@@ -12,11 +17,11 @@ import lombok.RequiredArgsConstructor;
 
 @Document(collection = "journal")
 @RequiredArgsConstructor
-@Getter
 public class Journal {
     
     @Id
 	private String id;
+	@Indexed(unique=true)
     private final String username;
     private List<Entry> entries;
     private List<Milestone> milestones;

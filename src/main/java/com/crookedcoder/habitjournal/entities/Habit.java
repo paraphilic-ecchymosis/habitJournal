@@ -1,6 +1,6 @@
 package com.crookedcoder.habitjournal.entities;
 
-import com.mongodb.lang.NonNull;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -14,14 +14,21 @@ import lombok.RequiredArgsConstructor;
 public @Data class Habit {
 
     @Id
-	private String id;
+    private String id;
+    @NotEmpty (message = "Name is required.")
 	@Indexed(unique=true)
-	private final String name;
-    @NonNull
+	private String name;
+    @NotEmpty (message = "Description is required.")
     private String description;
     private String goal;
-    private String recurring;
-    private String minimum;
-    private String isActive;
+    //@NotEmpty (message = "Selection is required.")
+    private Boolean recurring;
+    private Boolean minimum;
+    private Boolean active;
+
+    public Boolean getRecurring()
+    {
+        return recurring == null ? false : recurring;
+    }
 
 }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Habits | Habit Journal</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/normalize.css" th:href="@{/css/normalize.css}" />
+    <link rel="stylesheet" type="text/css" href="../static/css/boiler-plate.css" th:href="@{/css/boiler-plate.css}" />
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css" th:href="@{/css/main.css}" />
+
+    <script src="js/vendor/jquery-3.4.1.min.js"></script>
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-sm  navbar-light crypt_nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Habit Journal</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/habits">Habits</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section id="habitform" class="outer-wrapper">
+        <div class="inner-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4 class-">
+                        <h2 class="text-center">Add Habit</h2>
+                        <form th:action="@{/habit}" th:object="${habit}" method="POST" enctype="utf8">
+                            <div th:if="${param.success}">
+                                <div class="alert alert-success">
+                                    Habit creation complete!
+                                </div>
+                            </div>
+                            <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+                                <ul th:if="${#fields.hasErrors('*')}">
+                                    <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName">Habit</label>
+                                <input type="text" th:field="*{name}" class="form-control" id="inputName" th:errorclass="is-invalid" placeholder="Enter habit">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputDescription">Description</label>
+                                <input type="text" th:field="*{description}" class="form-control" id="inputDescription" th:errorclass="is-invalid" placeholder="Enter description">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputGoal">Goal</label>
+                                <input type="text" th:field="*{goal}" class="form-control" id="inputGoal" th:errorclass="is-invalid" placeholder="Enter goal">
+                            </div>
+                            <div class="form-group">
+                                Does this repeat?
+                                <label for="recurring-true">Yes</label>
+                                <input type="radio" th:field="*{recurring}" class="form-control" id="recurring-true" value="true">
+                                <label for="recurring-false">No</label>
+                                <input type="radio" th:field="*{recurring}" class="form-control" id="recurring-false" value="false">
+                            </div>
+                            <button type="submit" class="signupbtn signup_btn">Create Habit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
