@@ -12,17 +12,17 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Document(collection = "hjusers")
+@Document(collection = "users")
 @RequiredArgsConstructor
 @Getter
 @ToString
-public class HjUser {
+public class User {
     	
 	@Id
 	private String id;
 	@NonNull
 	@Indexed(unique=true)
-	private final String username;
+	private String username;
 	@NonNull
 	private String firstName;
 	@NonNull
@@ -36,8 +36,11 @@ public class HjUser {
 	private boolean verified;
 	@NonNull
 	private String securityPin;
-	@NonNull
 	@Setter
 	private boolean totpEnabled;
+
+	public User(String username, String firstname2, String lastname2, String email2, String encode, String encode2,
+			boolean tOTP_ENABLED) {
+	}
 	
 }
