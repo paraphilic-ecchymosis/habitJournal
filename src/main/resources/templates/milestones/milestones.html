@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Habits | Habit Journal</title>
+    <title>Milestones | Habit Journal</title>
     <link rel="stylesheet" type="text/css" href="../static/css/normalize.css" th:href="@{/css/normalize.css}" />
     <link rel="stylesheet" type="text/css" href="../static/css/boiler-plate.css" th:href="@{/css/boiler-plate.css}" />
     <link rel="stylesheet" type="text/css" href="../static/css/main.css" th:href="@{/css/main.css}" />
@@ -41,15 +41,20 @@
                                     Milestone creation complete!
                                 </div>
                             </div>
+                            <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+                                <ul th:if="${#fields.hasErrors('*')}">
+                                    <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+                                </ul>
+                            </div>
                             <div class="form-group">
                                 <label for="inputName">Milestone</label>
-                                <input type="text" th:field="*{name}" class="form-control" id="inputName" th:errorclass="is-invalid" placeholder="Enter habit">
+                                <input type="text" th:field="*{name}" class="form-control" id="inputName" th:errorclass="is-invalid" placeholder="Enter Milestone">
                             </div>
                             <div class="form-group">
                                 <label for="inputDescription">Description</label>
                                 <input type="text" th:field="*{description}" class="form-control" id="inputDescription" th:errorclass="is-invalid" placeholder="Enter description">
                             </div>
-                            <button type="submit" class="signupbtn signup_btn">Milestone Habit</button>
+                            <button type="submit" class="signupbtn signup_btn">Create Milestone</button>
                         </form>
                     </div>
                 </div>
