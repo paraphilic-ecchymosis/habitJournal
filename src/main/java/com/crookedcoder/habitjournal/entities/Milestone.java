@@ -21,13 +21,12 @@ public @Data class Milestone {
     
     @Id
     private String id;
-    @NotEmpty
+    @NotEmpty (message = "Name required.")
 	@Indexed(unique=true)
 	private String name;
-    @NotEmpty
+    @NotEmpty (message = "Description required.")
     private String description;
     private String goal;
-    @NotEmpty
     private String habitId;
     private String dueDate;
     // TODO: Maybe enum for this now that

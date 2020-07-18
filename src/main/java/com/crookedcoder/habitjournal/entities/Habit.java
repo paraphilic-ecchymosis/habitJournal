@@ -1,6 +1,7 @@
 package com.crookedcoder.habitjournal.entities;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -21,7 +22,6 @@ public @Data class Habit {
     @NotEmpty (message = "Description is required.")
     private String description;
     private String goal;
-    //@NotEmpty (message = "Selection is required.")
     private Boolean recurring;
     private Boolean minimum;
     private Boolean active;
@@ -29,6 +29,11 @@ public @Data class Habit {
     public Boolean getRecurring()
     {
         return recurring == null ? false : recurring;
+    }
+
+    public Boolean getActive()
+    {
+        return active == null ? false : active;
     }
 
 }
