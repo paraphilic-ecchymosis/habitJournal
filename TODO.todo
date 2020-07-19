@@ -1,9 +1,0 @@
-TODO: MongoDB Setup
-    # Production
-    name: mongo01
-    provider: gcp
-    Test User Credentials
-    name: testAdmin
-    password: fQuhF9daEbHti1rv
-
-    # TODO: Dev

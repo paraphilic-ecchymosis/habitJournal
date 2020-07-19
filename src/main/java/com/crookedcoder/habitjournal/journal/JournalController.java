@@ -23,25 +23,6 @@ public class JournalController {
 
 	private final JournalRepository journalRepository;
 
-	// @GetMapping("/register")
-	// public String register(Model model) {
-	// model.addAttribute(new UserDto());
-
-	// return "register";
-	// }
-
-	// @PostMapping("/register")
-	// public String register(@Valid @ModelAttribute("user") UserDto user,
-	// BindingResult result) {
-	// if(result.hasErrors()) {
-	// return "register";
-	// }
-	// registrationService.registerNewUser(user);
-	// journalService.createNewPortfolio(user.getUsername());
-
-	// return "redirect:register?success";
-	// }
-
 	@RequestMapping("/journal")
 	public @ResponseBody List<Journal> getJournals() {
 		return journalRepository.findAll();
