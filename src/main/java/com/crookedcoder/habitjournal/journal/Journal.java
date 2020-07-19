@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.RequiredArgsConstructor;
 
-@Document(collection = "journal")
+@Document(collection = "journals")
 @RequiredArgsConstructor
 public class Journal {
     
@@ -67,7 +67,7 @@ public class Journal {
 	
 	
 	public Entry getEntryById(String id) {
-		for(Entry entry : this.entries) {
+		for(Entry entry : entries) {
 			if(id.equals(entry.getId())) {
 				return entry;
 			}

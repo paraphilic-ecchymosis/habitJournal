@@ -1,0 +1,33 @@
+<form th:action="@{/habit}" th:object="${habit}" method="POST" enctype="utf8">
+    <div th:if="${param.success}">
+        <div class="alert alert-success">
+            Habit creation complete!
+        </div>
+    </div>
+    <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+        <ul th:if="${#fields.hasErrors('*')}">
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+        </ul>
+    </div>
+    <div class="form-group">
+        <label for="inputName">Habit</label>
+        <input type="text" th:field="*{name}" class="form-control" id="inputName" th:errorclass="is-invalid" placeholder="Enter habit">
+    </div>
+    <div class="form-group">
+        <label for="inputDescription">Description</label>
+        <input type="text" th:field="*{description}" class="form-control" id="inputDescription" th:errorclass="is-invalid" placeholder="Enter description">
+    </div>
+    <div class="form-group">
+        <label for="inputGoal">Goal</label>
+        <input type="text" th:field="*{goal}" class="form-control" id="inputGoal" th:errorclass="is-invalid" placeholder="Enter goal">
+    </div>
+    <div class="form-group">
+        Does this repeat?
+        <label for="recurring-true">Yes</label>
+        <input type="radio" th:field="*{recurring}" class="form-control" id="recurring-true" value="true">
+        <label for="recurring-false">No</label>
+        <input type="radio" th:field="*{recurring}" class="form-control" id="recurring-false" value="false">
+    </div>
+    <input type="hidden" th:field="*{journalId}" id="journalId" value="5f13cb9a6229db6d15322bd0"></input>
+    <button type="submit" class="signupbtn signup_btn">Create Habit</button>
+</form>

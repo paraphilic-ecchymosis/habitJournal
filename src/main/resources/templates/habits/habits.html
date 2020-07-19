@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="../static/css/boiler-plate.css" th:href="@{/css/boiler-plate.css}" />
     <link rel="stylesheet" type="text/css" href="../static/css/main.css" th:href="@{/css/main.css}" />
 
-    <script src="js/vendor/jquery-3.4.1.min.js"></script>
 </head>
 
 
@@ -29,12 +28,12 @@
             </ul>
         </div>
     </nav>
-    <section id="habitform" class="outer-wrapper">
+    <section id="" class="outer-wrapper">
         <div class="inner-wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 col-sm-offset-4 class-">
-                        <h2 class="text-center">Add Habit</h2>
+                    <div class="col-sm-4 col-sm-offset-4 class-" id="habitForm">
+                        <!-- <button type="button" class="text-center">Create Habit</h2> -->
                         <form th:action="@{/habit}" th:object="${habit}" method="POST" enctype="utf8">
                             <div th:if="${param.success}">
                                 <div class="alert alert-success">
@@ -65,13 +64,17 @@
                                 <label for="recurring-false">No</label>
                                 <input type="radio" th:field="*{recurring}" class="form-control" id="recurring-false" value="false">
                             </div>
+                            <input type="hidden" th:field="*{journalId}">
                             <button type="submit" class="signupbtn signup_btn">Create Habit</button>
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script src="js/vendor/jquery-3.4.1.min.js"></script>
+    <script src="js/test.js"></script>
 </body>
 
 </html>

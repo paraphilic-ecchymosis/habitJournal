@@ -17,12 +17,13 @@ public @Data class Habit {
     private String id;
     @NotEmpty (message = "Name is required.")
 	@Indexed(unique=true)
-	private String name;
+    private String name;
+    @NotEmpty (message = "Journal ID not found.")
+    private String journalId;
     @NotEmpty (message = "Description is required.")
     private String description;
     private String goal;
     private Boolean recurring;
-    private Boolean minimum;
     private Boolean active;
 
     public Boolean getRecurring()
