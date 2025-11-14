@@ -98,4 +98,30 @@ export const journalAPI = {
   delete: (id) => api.delete(`/api/journals/${id}`),
 }
 
+// Analytics API
+export const analyticsAPI = {
+  getAnalytics: () => api.get('/api/analytics'),
+  getHabitStreak: (habitId) => api.get(`/api/analytics/streak/${habitId}`),
+  getCompletionRate: (habitId) => api.get(`/api/analytics/completion/${habitId}`),
+}
+
+// AI API
+export const aiAPI = {
+  getHabitInsights: (habitId) => api.get(`/api/ai/insights/habit/${habitId}`),
+  getOverallInsights: () => api.get('/api/ai/insights/overall'),
+  analyzePatterns: (habitId) => api.get(`/api/ai/insights/patterns/${habitId}`),
+  getCoaching: (habitId) => api.get(`/api/ai/coaching/habit/${habitId}`),
+  getMotivation: (habitId) => api.get(`/api/ai/coaching/motivation/${habitId}`),
+  getNextSteps: () => api.get('/api/ai/coaching/next-steps'),
+}
+
+// Export API
+export const exportAPI = {
+  exportHabitsCSV: () => api.get('/api/export/habits/csv', { responseType: 'blob' }),
+  exportEntriesCSV: () => api.get('/api/export/entries/csv', { responseType: 'blob' }),
+  exportMilestonesCSV: () => api.get('/api/export/milestones/csv', { responseType: 'blob' }),
+  exportReportPDF: () => api.get('/api/export/report/pdf', { responseType: 'blob' }),
+  exportHabitProgressPDF: (habitId) => api.get(`/api/export/habit/${habitId}/pdf`, { responseType: 'blob' }),
+}
+
 export default api
