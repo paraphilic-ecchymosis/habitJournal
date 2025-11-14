@@ -89,5 +89,45 @@ public @Data class Milestone {
         return ((double) (completedUnits != null ? completedUnits : 0) / goalUnits) * 100;
     }
 
+    /**
+     * Check if milestone is overdue using Java 21 pattern matching
+     */
+    public boolean isOverdue() {
+        return switch (status) {
+            case COMPLETED, CANCELLED, FAILED -> false;
+            case NOT_STARTED, IN_PROGRESS -> dueDate != null && LocalDate.now().isAfter(dueDate);
+        };
+    }
+
+    /**
+     * Get status description using Java 21 switch expressions
+     */
+    public String getStatusDescription() {
+        return switch (status) {
+            case NOT_STARTED -> "Milestone has not been started yet";
+            case IN_PROGRESS -> "Milestone is in progress (%d/%d completed)".formatted(
+                completedUnits != null ? completedUnits : 0,
+                goalUnits != null ? goalUnits : 0
+            );
+            case COMPLETED -> "Milestone completed on " + completedDate;
+            case FAILED -> "Milestone failed to complete by due date";
+            case CANCELLED -> "Milestone was cancelled";
+        };
+    }
+
+    /**
+     * Validate status transition using pattern matching (Java 21)
+     */
+    public boolean canTransitionTo(MilestoneStatus newStatus) {
+        return switch (this.status) {
+            case NOT_STARTED -> newStatus == MilestoneStatus.IN_PROGRESS ||
+                                newStatus == MilestoneStatus.CANCELLED;
+            case IN_PROGRESS -> newStatus == MilestoneStatus.COMPLETED ||
+                                newStatus == MilestoneStatus.FAILED ||
+                                newStatus == MilestoneStatus.CANCELLED;
+            case COMPLETED, FAILED, CANCELLED -> false; // Final states
+        };
+    }
+
 }
     

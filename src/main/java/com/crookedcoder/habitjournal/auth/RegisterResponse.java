@@ -1,15 +1,10 @@
 package com.crookedcoder.habitjournal.auth;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class RegisterResponse {
-
-    private String message;
-    private String username;
-    private String email;
-}
+/**
+ * Registration response DTO using Java 21 record
+ */
+public record RegisterResponse(
+    String message,
+    String username,
+    String email
+) {}
