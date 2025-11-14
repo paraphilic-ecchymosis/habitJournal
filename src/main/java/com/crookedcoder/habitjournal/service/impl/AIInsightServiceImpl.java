@@ -7,30 +7,29 @@ import com.crookedcoder.habitjournal.model.Habit;
 import com.crookedcoder.habitjournal.repository.EntriesRepository;
 import com.crookedcoder.habitjournal.repository.HabitRepository;
 import com.crookedcoder.habitjournal.service.AIInsightService;
-import org.springframework.ai.chat.client.ChatClient;
+import com.crookedcoder.habitjournal.service.PersonaFrameworkClient;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 /**
- * Implementation of AI Insight Service using Spring AI.
+ * Implementation of AI Insight Service using Persona-Framework.
  */
 @Service
 public class AIInsightServiceImpl implements AIInsightService {
 
-    private final ChatClient chatClient;
+    private final PersonaFrameworkClient personaFrameworkClient;
     private final HabitRepository habitRepository;
     private final EntriesRepository entriesRepository;
 
     public AIInsightServiceImpl(
-            ChatClient chatClient,
+            PersonaFrameworkClient personaFrameworkClient,
             HabitRepository habitRepository,
             EntriesRepository entriesRepository) {
-        this.chatClient = chatClient;
+        this.personaFrameworkClient = personaFrameworkClient;
         this.habitRepository = habitRepository;
         this.entriesRepository = entriesRepository;
     }
@@ -43,12 +42,10 @@ public class AIInsightServiceImpl implements AIInsightService {
 
         List<Entry> entries = entriesRepository.findByHabitId(habitId);
 
-        String prompt = buildHabitAnalysisPrompt(habit, entries);
+        String userPrompt = buildHabitAnalysisPrompt(habit, entries);
+        String systemPrompt = buildSystemPrompt();
 
-        String insight = chatClient.prompt()
-                .user(prompt)
-                .call()
-                .content();
+        String insight = personaFrameworkClient.sendPrompt(systemPrompt, userPrompt);
 
         return new AIInsightResponse(insight, "HABIT_ANALYSIS");
     }
@@ -60,12 +57,10 @@ public class AIInsightServiceImpl implements AIInsightService {
         List<Habit> habits = habitRepository.findAll();
         List<Entry> entries = entriesRepository.findAll();
 
-        String prompt = buildOverallAnalysisPrompt(habits, entries);
+        String userPrompt = buildOverallAnalysisPrompt(habits, entries);
+        String systemPrompt = buildSystemPrompt();
 
-        String insight = chatClient.prompt()
-                .user(prompt)
-                .call()
-                .content();
+        String insight = personaFrameworkClient.sendPrompt(systemPrompt, userPrompt);
 
         return new AIInsightResponse(insight, "OVERALL_ANALYSIS");
     }
@@ -78,12 +73,10 @@ public class AIInsightServiceImpl implements AIInsightService {
 
         List<Entry> entries = entriesRepository.findByHabitId(habitId);
 
-        String prompt = buildPatternAnalysisPrompt(habit, entries);
+        String userPrompt = buildPatternAnalysisPrompt(habit, entries);
+        String systemPrompt = buildSystemPrompt();
 
-        String insight = chatClient.prompt()
-                .user(prompt)
-                .call()
-                .content();
+        String insight = personaFrameworkClient.sendPrompt(systemPrompt, userPrompt);
 
         return new AIInsightResponse(insight, "PATTERN_ANALYSIS");
     }
@@ -148,6 +141,20 @@ public class AIInsightServiceImpl implements AIInsightService {
             habit.getName(),
             recentCompleted
         );
+    }
+
+    private String buildSystemPrompt() {
+        return """
+            You are an expert habit coach and behavioral psychologist provided by the Persona-Framework.
+            Your role is to analyze user habits and provide:
+            - Insightful analysis of patterns and trends
+            - Personalized, actionable coaching advice
+            - Motivational support and encouragement
+            - Evidence-based strategies for habit formation
+
+            Always be supportive, constructive, and specific in your recommendations.
+            Keep responses concise but meaningful (2-4 sentences).
+            """;
     }
 
     private int calculateCurrentStreak(List<Entry> entries) {

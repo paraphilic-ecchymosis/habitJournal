@@ -7,7 +7,7 @@ import com.crookedcoder.habitjournal.model.Habit;
 import com.crookedcoder.habitjournal.repository.EntriesRepository;
 import com.crookedcoder.habitjournal.repository.HabitRepository;
 import com.crookedcoder.habitjournal.service.AICoachingService;
-import org.springframework.ai.chat.client.ChatClient;
+import com.crookedcoder.habitjournal.service.PersonaFrameworkClient;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -15,20 +15,20 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Implementation of AI Coaching Service using Spring AI.
+ * Implementation of AI Coaching Service using Persona-Framework.
  */
 @Service
 public class AICoachingServiceImpl implements AICoachingService {
 
-    private final ChatClient chatClient;
+    private final PersonaFrameworkClient personaFrameworkClient;
     private final HabitRepository habitRepository;
     private final EntriesRepository entriesRepository;
 
     public AICoachingServiceImpl(
-            ChatClient chatClient,
+            PersonaFrameworkClient personaFrameworkClient,
             HabitRepository habitRepository,
             EntriesRepository entriesRepository) {
-        this.chatClient = chatClient;
+        this.personaFrameworkClient = personaFrameworkClient;
         this.habitRepository = habitRepository;
         this.entriesRepository = entriesRepository;
     }
@@ -41,12 +41,10 @@ public class AICoachingServiceImpl implements AICoachingService {
 
         List<Entry> entries = entriesRepository.findByHabitId(habitId);
 
-        String prompt = buildCoachingPrompt(habit, entries);
+        String userPrompt = buildCoachingPrompt(habit, entries);
+        String systemPrompt = buildSystemPrompt();
 
-        String response = chatClient.prompt()
-                .user(prompt)
-                .call()
-                .content();
+        String response = personaFrameworkClient.sendPrompt(systemPrompt, userPrompt);
 
         return parseCoachingResponse(response);
     }
@@ -59,12 +57,10 @@ public class AICoachingServiceImpl implements AICoachingService {
 
         List<Entry> entries = entriesRepository.findByHabitId(habitId);
 
-        String prompt = buildMotivationPrompt(habit, entries);
+        String userPrompt = buildMotivationPrompt(habit, entries);
+        String systemPrompt = buildSystemPrompt();
 
-        String response = chatClient.prompt()
-                .user(prompt)
-                .call()
-                .content();
+        String response = personaFrameworkClient.sendPrompt(systemPrompt, userPrompt);
 
         return parseCoachingResponse(response);
     }
@@ -75,12 +71,10 @@ public class AICoachingServiceImpl implements AICoachingService {
         List<Habit> habits = habitRepository.findAll();
         List<Entry> entries = entriesRepository.findAll();
 
-        String prompt = buildNextStepsPrompt(habits, entries);
+        String userPrompt = buildNextStepsPrompt(habits, entries);
+        String systemPrompt = buildSystemPrompt();
 
-        String response = chatClient.prompt()
-                .user(prompt)
-                .call()
-                .content();
+        String response = personaFrameworkClient.sendPrompt(systemPrompt, userPrompt);
 
         return parseCoachingResponse(response);
     }
@@ -146,6 +140,15 @@ public class AICoachingServiceImpl implements AICoachingService {
             habits.size(),
             entries.size()
         );
+    }
+
+    private String buildSystemPrompt() {
+        return """
+            You are an expert habit coach and behavioral psychologist provided by the Persona-Framework.
+            Your role is to provide personalized coaching and motivation for habit formation.
+            Provide supportive, actionable, and encouraging guidance.
+            Keep responses structured and concise.
+            """;
     }
 
     private AICoachingResponse parseCoachingResponse(String response) {
